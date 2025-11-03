@@ -1,4 +1,4 @@
-# Spectra MCP Server
+# 🎨 Spectra MCP Server
 
 A powerful [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server for converting colors between different color spaces and formats. Built with FastMCP and powered by the coloraide library.
 
@@ -40,30 +40,22 @@ The following table shows all supported color format conversions:
 
 All conversions are bidirectional—you can convert between any two formats in either direction.
 
-## Installation
+## 🛠️ Installation
 
-### 🚀 Quick Start (Recommended - Hosted Service)
+### Requirements
 
-The easiest way to use Spectra is via the hosted service. No installation or setup required!
+- Cursor, Claude Code, VSCode, Windsurf or another MCP Client
 
-### One-Click Installation
+<details>
+<summary><b>Install in Cursor</b></summary>
 
-#### Cursor IDE
+Go to: `Settings` -> `Cursor Settings` -> `MCP` -> `Add new global MCP server`
 
-**Option 1: Via Settings UI**
+Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file is the recommended approach. You may also install in a specific project by creating `.cursor/mcp.json` in your project folder. See [Cursor MCP docs](https://docs.cursor.com/context/model-context-protocol) for more info.
 
-1. Open Cursor Settings (`Cmd/Ctrl + ,`)
-2. Navigate to **Features** → **MCP** (or **AI** → **MCP Servers**)
-3. Click **"Add Server"** or **"+ Add New MCP Server"**
-4. Configure:
-   - **Name**: `Spectra` (or any name you prefer)
-   - **URL**: `https://spectra-mcp.fastmcp.app/mcp`
-5. Save and restart Cursor
+> Since Cursor 1.0, you can click the install button at the top of this README for instant one-click installation.
 
-**Option 2: Via Configuration File**
-
-1. Open or create `~/.cursor/mcp.json` (macOS/Linux) or `%APPDATA%\Cursor\mcp.json` (Windows)
-2. Add the following configuration:
+[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=spectra&config=eyJ1cmwiOiJodHRwczovL3NwZWN0cmEtbWNwLmZhc3RtY3AuYXBwL21jcCJ9)
 
 ```json
 {
@@ -75,17 +67,188 @@ The easiest way to use Spectra is via the hosted service. No installation or set
 }
 ```
 
-3. Save and restart Cursor
+</details>
 
-#### Claude Desktop
+<details>
+<summary><b>Install in Claude Code</b></summary>
 
-1. Open the Claude Desktop configuration file:
+Run this command. See [Claude Code MCP docs](https://docs.anthropic.com/en/docs/claude-code/mcp) for more info.
 
-   - **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-   - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
-   - **Linux**: `~/.config/Claude/claude_desktop_config.json`
+```sh
+claude mcp add --transport http spectra https://spectra-mcp.fastmcp.app/mcp
+```
 
-2. Add Spectra to the `mcpServers` section:
+</details>
+
+<details>
+<summary><b>Install in Amp</b></summary>
+
+Run this command in your terminal. See [Amp MCP docs](https://ampcode.com/manual#mcp) for more info.
+
+```sh
+amp mcp add spectra https://spectra-mcp.fastmcp.app/mcp
+```
+
+</details>
+
+<details>
+<summary><b>Install in Windsurf</b></summary>
+
+Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.windsurf.com/windsurf/cascade/mcp) for more info.
+
+```json
+{
+  "mcpServers": {
+    "spectra": {
+      "serverUrl": "https://spectra-mcp.fastmcp.app/mcp"
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in VS Code</b></summary>
+
+Add this to your VS Code MCP config file. See [VS Code MCP docs](https://code.visualstudio.com/docs/copilot/chat/mcp-servers) for more info.
+
+```json
+"mcp": {
+  "servers": {
+    "spectra": {
+      "type": "http",
+      "url": "https://spectra-mcp.fastmcp.app/mcp"
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Cline</b></summary>
+
+You can easily install Spectra through the [Cline MCP Server Marketplace](https://cline.bot/mcp-marketplace) by following these instructions:
+
+1. Open **Cline**.
+2. Click the hamburger menu icon (☰) to enter the **MCP Servers** section.
+3. Use the search bar within the **Marketplace** tab to find _Spectra_.
+4. Click the **Install** button.
+
+Or you can directly edit MCP servers configuration:
+
+1. Open **Cline**.
+2. Click the hamburger menu icon (☰) to enter the **MCP Servers** section.
+3. Choose **Remote Servers** tab.
+4. Click the **Edit Configuration** button.
+5. Add spectra to `mcpServers`:
+
+```json
+{
+  "mcpServers": {
+    "spectra": {
+      "url": "https://spectra-mcp.fastmcp.app/mcp",
+      "type": "streamableHttp"
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Zed</b></summary>
+
+Add this to your Zed `settings.json`. See [Zed Context Server docs](https://zed.dev/docs/assistant/context-servers) for more info.
+
+Note: Zed currently supports local MCP servers only. For remote server support, please check Zed's documentation for updates or use another MCP client that supports remote HTTP servers.
+
+</details>
+
+<details>
+<summary><b>Install in Augment Code</b></summary>
+
+Note: Augment Code currently supports local MCP servers only. For remote server support, please check Augment Code's documentation for updates or use another MCP client that supports remote HTTP servers.
+
+</details>
+
+<details>
+<summary><b>Install in Roo Code</b></summary>
+
+Add this to your Roo Code MCP configuration file. See [Roo Code MCP docs](https://docs.roocode.com/features/mcp/using-mcp-in-roo) for more info.
+
+```json
+{
+  "mcpServers": {
+    "spectra": {
+      "type": "streamable-http",
+      "url": "https://spectra-mcp.fastmcp.app/mcp"
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Claude Desktop</b></summary>
+
+Open Claude Desktop and navigate to Settings > Connectors > Add Custom Connector. Enter the name as `Spectra` and the remote MCP server URL as `https://spectra-mcp.fastmcp.app/mcp`.
+
+</details>
+
+<details>
+<summary><b>Install in Opencode</b></summary>
+
+Add this to your Opencode configuration file. See [Opencode MCP docs](https://opencode.ai/docs/mcp-servers) for more info.
+
+```json
+"mcp": {
+  "spectra": {
+    "type": "remote",
+    "url": "https://spectra-mcp.fastmcp.app/mcp",
+    "enabled": true
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in OpenAI Codex</b></summary>
+
+See [OpenAI Codex](https://github.com/openai/codex) for more information.
+
+Add the following configuration to your OpenAI Codex MCP server settings:
+
+```toml
+[mcp_servers.spectra]
+url = "https://spectra-mcp.fastmcp.app/mcp"
+```
+
+</details>
+
+<details>
+<summary><b>Install in JetBrains AI Assistant</b></summary>
+
+Note: JetBrains AI Assistant currently supports local MCP servers only. For remote server support, please check JetBrains' documentation for updates or use another MCP client that supports remote HTTP servers.
+
+</details>
+
+<details>
+<summary><b>Install in Kiro</b></summary>
+
+Note: Kiro currently supports local MCP servers only. For remote server support, please check Kiro's documentation for updates or use another MCP client that supports remote HTTP servers.
+
+</details>
+
+<details>
+<summary><b>Install in Trae</b></summary>
+
+Use the Add manually feature and fill in the JSON configuration information for that MCP server.
+
+For more details, visit the [Trae documentation](https://docs.trae.ai/ide/model-context-protocol?_lang=en).
 
 ```json
 {
@@ -97,23 +260,77 @@ The easiest way to use Spectra is via the hosted service. No installation or set
 }
 ```
 
-3. Save the file and restart Claude Desktop
+</details>
 
-#### Other MCP Clients
+<details>
+<summary><b>Install in LM Studio</b></summary>
 
-For any MCP client that supports remote HTTP servers, add this configuration:
+Note: LM Studio currently supports local MCP servers only. For remote server support, please check LM Studio's documentation for updates or use another MCP client that supports remote HTTP servers.
+
+</details>
+
+<details>
+<summary><b>Install in Visual Studio 2022</b></summary>
+
+You can configure Spectra MCP in Visual Studio 2022 by following the [Visual Studio MCP Servers documentation](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022).
+
+Add this to your Visual Studio MCP config file (see the [Visual Studio docs](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022) for details):
 
 ```json
 {
-  "mcpServers": {
+  "inputs": [],
+  "servers": {
     "spectra": {
+      "type": "http",
       "url": "https://spectra-mcp.fastmcp.app/mcp"
     }
   }
 }
 ```
 
-Refer to your client's documentation for the exact location of the configuration file.
+For more information and troubleshooting, refer to the [Visual Studio MCP Servers documentation](https://learn.microsoft.com/visualstudio/ide/mcp-servers?view=vs-2022).
+
+</details>
+
+<details>
+<summary><b>Install in Crush</b></summary>
+
+Add this to your Crush configuration file. See [Crush MCP docs](https://github.com/charmbracelet/crush#mcps) for more info.
+
+```json
+{
+  "$schema": "https://charm.land/crush.json",
+  "mcp": {
+    "spectra": {
+      "type": "http",
+      "url": "https://spectra-mcp.fastmcp.app/mcp"
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in BoltAI</b></summary>
+
+Note: BoltAI currently supports local MCP servers only. For remote server support, please check BoltAI's documentation for updates or use another MCP client that supports remote HTTP servers.
+
+</details>
+
+<details>
+<summary><b>Install in Warp</b></summary>
+
+Note: Warp currently supports local MCP servers only. For remote server support, please check Warp's documentation for updates or use another MCP client that supports remote HTTP servers.
+
+</details>
+
+<details>
+<summary><b>Install in Perplexity Desktop</b></summary>
+
+Note: Perplexity Desktop currently supports local MCP servers only. For remote server support, please check Perplexity's documentation for updates or use another MCP client that supports remote HTTP servers.
+
+</details>
 
 ---
 
@@ -148,31 +365,6 @@ uv run python main.py
 ```
 
 The server will start on `http://127.0.0.1:8000` by default.
-
-4. Configure your MCP client to use the local server:
-
-```json
-{
-  "mcpServers": {
-    "spectra": {
-      "url": "http://127.0.0.1:8000"
-    }
-  }
-}
-```
-
-Or using command transport:
-
-```json
-{
-  "mcpServers": {
-    "spectra": {
-      "command": "uv",
-      "args": ["run", "python", "/path/to/spectra-mcp/main.py"]
-    }
-  }
-}
-```
 
 ## API Reference
 
@@ -414,9 +606,9 @@ Output: #ff8080
 
 No configuration needed! The hosted service at `https://spectra-mcp.fastmcp.app/mcp` is ready to use.
 
-### Local Server
+### Local Development Server
 
-Server configuration can be modified in `fastmcp.json`:
+For local development, server configuration can be modified in `fastmcp.json`:
 
 - **Port**: Change the `port` value (default: 8000)
 - **Host**: Change the `host` value (default: 127.0.0.1)
@@ -427,7 +619,6 @@ Server configuration can be modified in `fastmcp.json`:
 
 - [coloraide](https://github.com/Facelessuser/coloraide) (>=5.1): Advanced color manipulation library
 - [fastmcp](https://github.com/jlowin/fastmcp) (>=2.13.0.2): Fast MCP server framework
-
 
 ## Acknowledgments
 
