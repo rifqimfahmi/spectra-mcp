@@ -8,3 +8,15 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Docker
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store

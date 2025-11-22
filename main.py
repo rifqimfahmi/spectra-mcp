@@ -1,5 +1,6 @@
 from fastmcp import FastMCP
 from coloraide import Color
+import os
 
 mcp = FastMCP(
     name="Spectra MCP Server",
@@ -103,4 +104,6 @@ def hex_to_oklch(hex: str) -> str:
 
 
 if __name__ == "__main__":
-    mcp.run(transport="http", port=8000)
+    host = os.getenv("HOST", "127.0.0.1")
+    port = int(os.getenv("PORT", "8000"))
+    mcp.run(transport="http", host=host, port=port)
