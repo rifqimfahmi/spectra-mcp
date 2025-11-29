@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     container_name: spectra-mcp-server
     ports:
-      - "8000:8000"
+      - "8002:8000"
     environment:
       - DEBUG=true
       - ENV=development
